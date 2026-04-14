@@ -1,0 +1,948 @@
+diff --git a/README.md b/README.md
+index 850d4751cdca00d5ace0977ccb16f608529402fe..fd28ae3801b127008a7e817116c4e7caedf1ef79 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,67 @@
+-# wordpress_wedding
+\ No newline at end of file
++# Adaptive Website Testing Tool
++
++A lightweight SPA for testing how a URL renders across common device sizes at the same time.
++
++## Included MVP Features
++
++- URL input with normalization (`https://` auto-prepended).
++- Four required presets:
++  - Desktop `1920×1080`
++  - Laptop `1366×768`
++  - Tablet `768×1024`
++  - Mobile `375×812`
++- Grid view (2×2), single view, and split view.
++- iframe-based viewport rendering with fixed dimensions.
++- Global zoom slider (`25%` to `200%`) and auto-fit.
++- Reload all active iframes.
++- Orientation toggle for tablet/mobile (and custom device).
++- Optional overlays:
++  - viewport width
++  - breakpoint label
++  - grid visualization
++- Optional custom device resolution.
++- Graceful iframe restriction fallback via “Open in new tab”.
++
++## Run
++
++Because this project is plain HTML/CSS/JS, you can run it with any static server.
++
++Example:
++
++```bash
++python3 -m http.server 4173
++```
++
++Then open:
++
++- <http://localhost:4173>
++
++## Notes
++
++- Some sites cannot be embedded in iframes due to `X-Frame-Options` or CSP `frame-ancestors` policies.
++- Scroll sync is best-effort and constrained by browser same-origin policies.
++
++## Downloadable Archive
++
++Archive file name in repo root:
++
++- `adaptive-website-testing-tool.zip`
++
++### How to download
++
++If you already cloned the repo locally:
++
++```bash
++cp adaptive-website-testing-tool.zip ~/Downloads/
++```
++
++If you use GitHub web UI:
++
++1. Open `adaptive-website-testing-tool.zip` in the repository root.
++2. Click **Download** (or use the **Raw** button and save the file).
++
++If needed, create/recreate the archive locally:
++
++```bash
++zip -r adaptive-website-testing-tool.zip README.md index.html styles.css app.js
++```
+diff --git a/adaptive-website-testing-tool.zip b/adaptive-website-testing-tool.zip
+new file mode 100644
+index 0000000000000000000000000000000000000000..5f016448a03a45dcfd41212c0770dbeb4f7eed30
+GIT binary patch
+literal 7255
+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%0DP-H!@%)=LTh~mPfLL
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/app.js b/app.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..523dee61f04360a22304fe7f986bcdb1dd6261bc
+--- /dev/null
++++ b/app.js
+@@ -0,0 +1,399 @@
++const presetDevices = [
++  { id: 'desktop', name: 'Desktop', width: 1920, height: 1080, orientation: 'landscape', rotatable: false },
++  { id: 'laptop', name: 'Laptop', width: 1366, height: 768, orientation: 'landscape', rotatable: false },
++  { id: 'tablet', name: 'Tablet', width: 768, height: 1024, orientation: 'portrait', rotatable: true },
++  { id: 'mobile', name: 'Mobile', width: 375, height: 812, orientation: 'portrait', rotatable: true },
++];
++
++const state = {
++  url: '',
++  zoom: 100,
++  viewMode: 'grid',
++  singleDevice: 'desktop',
++  splitLeft: 'desktop',
++  splitRight: 'mobile',
++  showFrames: true,
++  scrollSync: false,
++  showWidthOverlay: true,
++  showBreakpointOverlay: true,
++  showGridOverlay: false,
++  customEnabled: false,
++  customDevice: {
++    id: 'custom',
++    name: 'Custom',
++    width: 1440,
++    height: 900,
++    orientation: 'landscape',
++    rotatable: true,
++  },
++  iframeReloadSeed: Date.now(),
++};
++
++const refs = {
++  urlInput: document.getElementById('urlInput'),
++  loadBtn: document.getElementById('loadBtn'),
++  reloadBtn: document.getElementById('reloadBtn'),
++  openNewTabBtn: document.getElementById('openNewTabBtn'),
++  viewMode: document.getElementById('viewMode'),
++  singleDevice: document.getElementById('singleDevice'),
++  splitLeft: document.getElementById('splitLeft'),
++  splitRight: document.getElementById('splitRight'),
++  zoomRange: document.getElementById('zoomRange'),
++  zoomLabel: document.getElementById('zoomLabel'),
++  fitBtn: document.getElementById('fitBtn'),
++  framesToggle: document.getElementById('framesToggle'),
++  syncToggle: document.getElementById('syncToggle'),
++  widthOverlayToggle: document.getElementById('widthOverlayToggle'),
++  breakpointToggle: document.getElementById('breakpointToggle'),
++  gridOverlayToggle: document.getElementById('gridOverlayToggle'),
++  customWidth: document.getElementById('customWidth'),
++  customHeight: document.getElementById('customHeight'),
++  customApply: document.getElementById('customApply'),
++  customEnabled: document.getElementById('customEnabled'),
++  status: document.getElementById('status'),
++  viewportArea: document.getElementById('viewportArea'),
++  viewportTemplate: document.getElementById('viewportTemplate'),
++};
++
++const openIds = new Set();
++let syncingScroll = false;
++
++function normalizeUrl(url) {
++  const trimmed = url.trim();
++  if (!trimmed) return { ok: false, reason: 'Please enter a URL.' };
++
++  const prefixed = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
++  try {
++    const parsed = new URL(prefixed);
++    if (!parsed.hostname) throw new Error('Invalid host');
++    return { ok: true, url: parsed.toString() };
++  } catch {
++    return { ok: false, reason: 'Invalid URL format.' };
++  }
++}
++
++function setStatus(message) {
++  refs.status.textContent = message;
++}
++
++function getAllDevices() {
++  const base = presetDevices.map((device) => ({ ...device }));
++  if (state.customEnabled) base.push({ ...state.customDevice });
++  return base;
++}
++
++function getVisibleDevices() {
++  const devices = getAllDevices();
++  if (state.viewMode === 'single') {
++    const single = devices.find((device) => device.id === state.singleDevice) ?? devices[0];
++    return single ? [single] : [];
++  }
++  if (state.viewMode === 'split') {
++    const left = devices.find((device) => device.id === state.splitLeft) ?? devices[0];
++    const right = devices.find((device) => device.id === state.splitRight) ?? devices[1] ?? devices[0];
++    return [left, right].filter(Boolean);
++  }
++  return devices.filter((device) => device.id !== 'custom').slice(0, 4);
++}
++
++function breakpointLabel(width) {
++  if (width < 768) return '<768 (mobile)';
++  if (width < 1024) return '768-1023 (tablet)';
++  if (width < 1280) return '1024-1279 (small laptop)';
++  return '>=1280 (desktop)';
++}
++
++function createIframeUrl(baseUrl) {
++  const url = new URL(baseUrl);
++  url.searchParams.set('_r', String(state.iframeReloadSeed));
++  return url.toString();
++}
++
++function applyAutoFit() {
++  const cards = [...document.querySelectorAll('.viewport-card')];
++  if (!cards.length) return;
++
++  let bestZoom = 200;
++  cards.forEach((card) => {
++    const frame = card.querySelector('.viewport-frame');
++    if (!frame) return;
++    const shell = card.querySelector('.viewport-scroll-shell');
++    const availableWidth = shell.clientWidth - 16;
++    const availableHeight = shell.clientHeight - 16;
++    const frameWidth = Number(frame.dataset.width);
++    const frameHeight = Number(frame.dataset.height);
++    const candidate = Math.min((availableWidth / frameWidth) * 100, (availableHeight / frameHeight) * 100);
++    if (Number.isFinite(candidate)) {
++      bestZoom = Math.min(bestZoom, candidate);
++    }
++  });
++
++  const zoom = Math.max(25, Math.min(200, Math.floor(bestZoom)));
++  state.zoom = zoom;
++  refs.zoomRange.value = String(zoom);
++  refs.zoomLabel.textContent = `${zoom}%`;
++  updateViewportScale();
++}
++
++function updateViewportScale() {
++  document.querySelectorAll('.viewport-scale-wrap').forEach((element) => {
++    element.style.transform = `scale(${state.zoom / 100})`;
++  });
++}
++
++function syncScrollFrom(sourceCard) {
++  if (!state.scrollSync || syncingScroll) return;
++  syncingScroll = true;
++
++  const shell = sourceCard.querySelector('.viewport-scroll-shell');
++  const ratioX = shell.scrollWidth > shell.clientWidth ? shell.scrollLeft / (shell.scrollWidth - shell.clientWidth) : 0;
++  const ratioY = shell.scrollHeight > shell.clientHeight ? shell.scrollTop / (shell.scrollHeight - shell.clientHeight) : 0;
++
++  document.querySelectorAll('.viewport-card').forEach((card) => {
++    if (card === sourceCard) return;
++    const targetShell = card.querySelector('.viewport-scroll-shell');
++    const maxX = targetShell.scrollWidth - targetShell.clientWidth;
++    const maxY = targetShell.scrollHeight - targetShell.clientHeight;
++    targetShell.scrollLeft = maxX > 0 ? ratioX * maxX : 0;
++    targetShell.scrollTop = maxY > 0 ? ratioY * maxY : 0;
++  });
++
++  setTimeout(() => {
++    syncingScroll = false;
++  }, 16);
++}
++
++function populateDeviceSelectors() {
++  const options = getAllDevices().map((device) => `<option value="${device.id}">${device.name}</option>`).join('');
++  refs.singleDevice.innerHTML = options;
++  refs.splitLeft.innerHTML = options;
++  refs.splitRight.innerHTML = options;
++  refs.singleDevice.value = state.singleDevice;
++  refs.splitLeft.value = state.splitLeft;
++  refs.splitRight.value = state.splitRight;
++}
++
++function renderViewports() {
++  refs.viewportArea.className = `viewport-area ${state.viewMode}`;
++  refs.viewportArea.innerHTML = '';
++  openIds.clear();
++
++  const visibleDevices = getVisibleDevices();
++  const currentUrl = state.url;
++
++  visibleDevices.forEach((device) => {
++    const fragment = refs.viewportTemplate.content.cloneNode(true);
++    const card = fragment.querySelector('.viewport-card');
++    const name = fragment.querySelector('.device-name');
++    const orientation = fragment.querySelector('.orientation');
++    const sizeLabel = fragment.querySelector('.size-label');
++    const frame = fragment.querySelector('.viewport-frame');
++    const iframe = fragment.querySelector('iframe');
++    const rotateBtn = fragment.querySelector('.rotate-btn');
++    const widthOverlay = fragment.querySelector('.width-overlay');
++    const breakpointOverlay = fragment.querySelector('.breakpoint-overlay');
++    const gridOverlay = fragment.querySelector('.grid-overlay');
++
++    const width = device.width;
++    const height = device.height;
++
++    name.textContent = device.name;
++    orientation.textContent = `(${device.orientation})`;
++    sizeLabel.textContent = `${width}×${height}`;
++
++    frame.style.width = `${width}px`;
++    frame.style.height = `${height}px`;
++    frame.dataset.width = String(width);
++    frame.dataset.height = String(height);
++    frame.classList.toggle('with-device-frame', state.showFrames);
++
++    widthOverlay.style.display = state.showWidthOverlay ? 'block' : 'none';
++    breakpointOverlay.style.display = state.showBreakpointOverlay ? 'block' : 'none';
++    gridOverlay.style.display = state.showGridOverlay ? 'block' : 'none';
++
++    widthOverlay.textContent = `Width: ${width}px`;
++    breakpointOverlay.textContent = breakpointLabel(width);
++
++    if (currentUrl) {
++      iframe.src = createIframeUrl(currentUrl);
++    } else {
++      iframe.srcdoc = '<p style="font-family: system-ui; padding: 16px;">Load a URL to preview.</p>';
++    }
++
++    rotateBtn.style.display = device.rotatable ? 'inline-flex' : 'none';
++    rotateBtn.addEventListener('click', () => {
++      rotateDevice(device.id);
++    });
++
++    card.addEventListener('scroll', () => syncScrollFrom(card), { passive: true, capture: true });
++
++    refs.viewportArea.appendChild(fragment);
++    openIds.add(device.id);
++  });
++
++  updateViewportScale();
++}
++
++function rotateDevice(deviceId) {
++  const rotateInList = (list) => {
++    const target = list.find((entry) => entry.id === deviceId);
++    if (!target || !target.rotatable) return false;
++    [target.width, target.height] = [target.height, target.width];
++    target.orientation = target.orientation === 'portrait' ? 'landscape' : 'portrait';
++    return true;
++  };
++
++  const rotatedPreset = rotateInList(presetDevices);
++  const rotatedCustom = state.customDevice.id === deviceId ? rotateInList([state.customDevice]) : false;
++
++  if (rotatedPreset || rotatedCustom) {
++    renderViewports();
++  }
++}
++
++function setModeVisibility() {
++  const isSingle = state.viewMode === 'single';
++  const isSplit = state.viewMode === 'split';
++  refs.singleDevice.disabled = !isSingle;
++  refs.splitLeft.disabled = !isSplit;
++  refs.splitRight.disabled = !isSplit;
++}
++
++function handleLoad() {
++  const result = normalizeUrl(refs.urlInput.value);
++  if (!result.ok) {
++    setStatus(result.reason);
++    return;
++  }
++
++  state.url = result.url;
++  refs.urlInput.value = result.url;
++  state.iframeReloadSeed = Date.now();
++  setStatus(`Loaded: ${result.url}`);
++  renderViewports();
++}
++
++function handleReload() {
++  if (!state.url) {
++    setStatus('Load a URL first.');
++    return;
++  }
++  state.iframeReloadSeed = Date.now();
++  renderViewports();
++  setStatus('Refreshed all active viewports.');
++}
++
++function initEvents() {
++  refs.loadBtn.addEventListener('click', handleLoad);
++  refs.urlInput.addEventListener('keydown', (event) => {
++    if (event.key === 'Enter') handleLoad();
++  });
++  refs.reloadBtn.addEventListener('click', handleReload);
++
++  refs.openNewTabBtn.addEventListener('click', () => {
++    if (!state.url) {
++      setStatus('Load a URL first to open it in a new tab.');
++      return;
++    }
++    window.open(state.url, '_blank', 'noopener,noreferrer');
++  });
++
++  refs.viewMode.addEventListener('change', (event) => {
++    state.viewMode = event.target.value;
++    setModeVisibility();
++    renderViewports();
++  });
++
++  refs.singleDevice.addEventListener('change', (event) => {
++    state.singleDevice = event.target.value;
++    renderViewports();
++  });
++
++  refs.splitLeft.addEventListener('change', (event) => {
++    state.splitLeft = event.target.value;
++    renderViewports();
++  });
++
++  refs.splitRight.addEventListener('change', (event) => {
++    state.splitRight = event.target.value;
++    renderViewports();
++  });
++
++  refs.zoomRange.addEventListener('input', (event) => {
++    state.zoom = Number(event.target.value);
++    refs.zoomLabel.textContent = `${state.zoom}%`;
++    updateViewportScale();
++  });
++
++  refs.fitBtn.addEventListener('click', applyAutoFit);
++
++  refs.framesToggle.addEventListener('change', (event) => {
++    state.showFrames = event.target.checked;
++    renderViewports();
++  });
++
++  refs.syncToggle.addEventListener('change', (event) => {
++    state.scrollSync = event.target.checked;
++    if (state.scrollSync) {
++      setStatus('Scroll sync enabled (best effort; cross-origin iframe syncing is browser-limited).');
++    }
++  });
++
++  refs.widthOverlayToggle.addEventListener('change', (event) => {
++    state.showWidthOverlay = event.target.checked;
++    renderViewports();
++  });
++
++  refs.breakpointToggle.addEventListener('change', (event) => {
++    state.showBreakpointOverlay = event.target.checked;
++    renderViewports();
++  });
++
++  refs.gridOverlayToggle.addEventListener('change', (event) => {
++    state.showGridOverlay = event.target.checked;
++    renderViewports();
++  });
++
++  refs.customEnabled.addEventListener('change', (event) => {
++    state.customEnabled = event.target.checked;
++    populateDeviceSelectors();
++    renderViewports();
++  });
++
++  refs.customApply.addEventListener('click', () => {
++    const width = Number(refs.customWidth.value);
++    const height = Number(refs.customHeight.value);
++    if (!Number.isFinite(width) || !Number.isFinite(height) || width < 100 || height < 100) {
++      setStatus('Custom size must be at least 100×100.');
++      return;
++    }
++    state.customDevice.width = width;
++    state.customDevice.height = height;
++    state.customDevice.orientation = width >= height ? 'landscape' : 'portrait';
++    populateDeviceSelectors();
++    renderViewports();
++    setStatus(`Custom device updated: ${width}×${height}`);
++  });
++
++  window.addEventListener('resize', debounce(() => {
++    if (state.zoom !== 100) return;
++    renderViewports();
++  }, 150));
++}
++
++function debounce(fn, delay) {
++  let timeout;
++  return (...args) => {
++    clearTimeout(timeout);
++    timeout = setTimeout(() => fn(...args), delay);
++  };
++}
++
++function init() {
++  populateDeviceSelectors();
++  setModeVisibility();
++  renderViewports();
++}
++
++initEvents();
++init();
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..ca53e0d2ae25d904ec9308bf7bedb25447ed4cd1
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,94 @@
++<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Adaptive Website Testing Tool</title>
++    <link rel="stylesheet" href="./styles.css" />
++  </head>
++  <body>
++    <div class="app">
++      <header class="control-panel">
++        <div class="row">
++          <label class="label" for="urlInput">URL</label>
++          <input id="urlInput" type="text" placeholder="https://example.com" />
++          <button id="loadBtn">Load</button>
++          <button id="reloadBtn" class="secondary">Reload</button>
++          <button id="openNewTabBtn" class="secondary">Open in new tab</button>
++        </div>
++
++        <div class="row wrap">
++          <label class="label" for="viewMode">View</label>
++          <select id="viewMode">
++            <option value="grid">Grid (2×2)</option>
++            <option value="single">Single</option>
++            <option value="split">Split</option>
++          </select>
++
++          <label class="label" for="singleDevice">Single device</label>
++          <select id="singleDevice"></select>
++
++          <label class="label" for="splitLeft">Split left</label>
++          <select id="splitLeft"></select>
++          <label class="label" for="splitRight">Split right</label>
++          <select id="splitRight"></select>
++
++          <label class="label" for="zoomRange">Zoom</label>
++          <input id="zoomRange" type="range" min="25" max="200" step="5" value="100" />
++          <span id="zoomLabel">100%</span>
++          <button id="fitBtn" class="secondary">Auto-fit</button>
++        </div>
++
++        <div class="row wrap">
++          <label class="toggle"><input id="framesToggle" type="checkbox" checked /> Device frames</label>
++          <label class="toggle"><input id="syncToggle" type="checkbox" /> Scroll sync</label>
++          <label class="toggle"><input id="widthOverlayToggle" type="checkbox" checked /> Width overlay</label>
++          <label class="toggle"><input id="breakpointToggle" type="checkbox" checked /> Breakpoint label</label>
++          <label class="toggle"><input id="gridOverlayToggle" type="checkbox" /> Grid overlay</label>
++        </div>
++
++        <div class="row wrap custom-row">
++          <strong>Custom resolution</strong>
++          <label class="label" for="customWidth">W</label>
++          <input id="customWidth" type="number" min="100" max="4000" value="1440" />
++          <label class="label" for="customHeight">H</label>
++          <input id="customHeight" type="number" min="100" max="4000" value="900" />
++          <button id="customApply" class="secondary">Apply custom</button>
++          <label class="toggle"><input id="customEnabled" type="checkbox" /> Enable custom device</label>
++        </div>
++
++        <p id="status" class="status">Enter a URL and click Load.</p>
++      </header>
++
++      <main id="viewportArea" class="viewport-area"></main>
++    </div>
++
++    <template id="viewportTemplate">
++      <section class="viewport-card">
++        <div class="viewport-header">
++          <div>
++            <strong class="device-name"></strong>
++            <span class="orientation"></span>
++          </div>
++          <div class="meta">
++            <span class="size-label"></span>
++            <button class="rotate-btn secondary" type="button">Rotate</button>
++          </div>
++        </div>
++
++        <div class="viewport-scroll-shell">
++          <div class="viewport-scale-wrap">
++            <div class="viewport-frame">
++              <iframe loading="lazy" referrerpolicy="no-referrer" sandbox="allow-forms allow-scripts allow-same-origin allow-popups"></iframe>
++              <div class="overlay width-overlay"></div>
++              <div class="overlay breakpoint-overlay"></div>
++              <div class="overlay grid-overlay"></div>
++            </div>
++          </div>
++        </div>
++      </section>
++    </template>
++
++    <script src="./app.js" type="module"></script>
++  </body>
++</html>
+diff --git a/styles.css b/styles.css
+new file mode 100644
+index 0000000000000000000000000000000000000000..2f1063291540e457b02ba2323327425964878eb8
+--- /dev/null
++++ b/styles.css
+@@ -0,0 +1,219 @@
++:root {
++  color-scheme: light;
++  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
++  --panel-bg: #111827;
++  --panel-fg: #f9fafb;
++  --surface: #f3f4f6;
++  --card: #ffffff;
++  --border: #d1d5db;
++  --accent: #2563eb;
++}
++
++* {
++  box-sizing: border-box;
++}
++
++body {
++  margin: 0;
++  background: var(--surface);
++  color: #111827;
++}
++
++.app {
++  min-height: 100vh;
++  display: flex;
++  flex-direction: column;
++}
++
++.control-panel {
++  position: sticky;
++  top: 0;
++  z-index: 5;
++  display: flex;
++  flex-direction: column;
++  gap: 0.7rem;
++  padding: 0.85rem;
++  background: var(--panel-bg);
++  color: var(--panel-fg);
++  border-bottom: 1px solid #374151;
++}
++
++.row {
++  display: flex;
++  align-items: center;
++  gap: 0.55rem;
++}
++
++.wrap {
++  flex-wrap: wrap;
++}
++
++.label {
++  font-size: 0.875rem;
++  opacity: 0.9;
++}
++
++input[type="text"],
++input[type="number"],
++select {
++  min-height: 2rem;
++  border: 1px solid #4b5563;
++  background: #1f2937;
++  color: #f9fafb;
++  border-radius: 6px;
++  padding: 0 0.55rem;
++}
++
++input[type="text"] {
++  width: min(34rem, 65vw);
++}
++
++input[type="number"] {
++  width: 6rem;
++}
++
++button {
++  border: 1px solid var(--accent);
++  color: #fff;
++  background: var(--accent);
++  border-radius: 6px;
++  padding: 0.45rem 0.7rem;
++  font-weight: 600;
++  cursor: pointer;
++}
++
++button.secondary {
++  background: #374151;
++  border-color: #4b5563;
++}
++
++.toggle {
++  font-size: 0.875rem;
++  display: inline-flex;
++  gap: 0.35rem;
++  align-items: center;
++}
++
++.status {
++  margin: 0;
++  min-height: 1.2em;
++  font-size: 0.85rem;
++  opacity: 0.95;
++}
++
++.viewport-area {
++  flex: 1;
++  display: grid;
++  gap: 0.85rem;
++  padding: 0.85rem;
++  align-content: start;
++}
++
++.viewport-area.grid {
++  grid-template-columns: repeat(2, minmax(360px, 1fr));
++}
++
++.viewport-area.single {
++  grid-template-columns: minmax(360px, 1fr);
++}
++
++.viewport-area.split {
++  grid-template-columns: repeat(2, minmax(360px, 1fr));
++}
++
++.viewport-card {
++  background: var(--card);
++  border: 1px solid var(--border);
++  border-radius: 10px;
++  overflow: hidden;
++  display: flex;
++  flex-direction: column;
++  min-height: 420px;
++}
++
++.viewport-header {
++  display: flex;
++  justify-content: space-between;
++  align-items: center;
++  padding: 0.6rem 0.75rem;
++  border-bottom: 1px solid var(--border);
++  background: #f8fafc;
++  font-size: 0.9rem;
++}
++
++.orientation,
++.size-label {
++  margin-left: 0.45rem;
++  opacity: 0.75;
++}
++
++.viewport-scroll-shell {
++  padding: 0.7rem;
++  overflow: auto;
++  flex: 1;
++  min-height: 0;
++  display: flex;
++  justify-content: center;
++  align-items: flex-start;
++}
++
++.viewport-scale-wrap {
++  transform-origin: top center;
++}
++
++.viewport-frame {
++  position: relative;
++  border: 1px solid #cbd5e1;
++  background: #fff;
++}
++
++.viewport-frame.with-device-frame {
++  border: 10px solid #0f172a;
++  border-radius: 18px;
++  box-shadow: 0 12px 28px rgb(15 23 42 / 0.3);
++}
++
++iframe {
++  width: 100%;
++  height: 100%;
++  border: 0;
++  display: block;
++  background: #fff;
++}
++
++.overlay {
++  position: absolute;
++  left: 8px;
++  pointer-events: none;
++  font-size: 0.72rem;
++  font-weight: 600;
++  border-radius: 4px;
++  padding: 0.2rem 0.35rem;
++  color: #fff;
++  background: rgb(15 23 42 / 0.7);
++  display: none;
++}
++
++.width-overlay {
++  top: 8px;
++}
++
++.breakpoint-overlay {
++  top: 34px;
++}
++
++.grid-overlay {
++  inset: 0;
++  padding: 0;
++  background-image:
++    linear-gradient(to right, rgb(14 165 233 / 0.15) 1px, transparent 1px),
++    linear-gradient(to bottom, rgb(14 165 233 / 0.15) 1px, transparent 1px);
++  background-size: 24px 24px;
++}
++
++@media (max-width: 1024px) {
++  .viewport-area.grid,
++  .viewport-area.split {
++    grid-template-columns: minmax(320px, 1fr);
++  }
++}
